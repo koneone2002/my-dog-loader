@@ -1,0 +1,117 @@
+:root {
+  --background-color: #29b9f2;
+  --head-color: #b0c9d9;
+  --inner-ear-color: #7c96a6;
+  --nose-color: #59261b;
+  --inner-eye-color: #223240;
+  /* shapes */
+  --circle: 50%;
+  --triangle: polygon(50% 0%, 0% 100%, 100% 100%);
+  --rounded-rectangle: 50px;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+.container {
+  position: relative;
+  margin: auto;
+  display: block;
+  margin-top: 8%;
+  width: 600px;
+  height: 420px;
+  background: none;
+
+  border: solid 4px #fff;
+}
+
+.head {
+  position: absolute;
+  top: 16.5%;
+  left: 25%;
+  width: 50%;
+  height: 67%;
+  background-color: var(--head-color);
+  -webkit-clip-path: polygon(0 0, 100% 0, 71% 100%, 44% 100%);
+  clip-path: polygon(0 0, 100% 0, 71% 100%, 44% 100%);
+}
+.left-ear {
+  position: absolute;
+  top: 16%;
+  left: 15%;
+  transform: rotate(-10deg);
+  width: 30%;
+  height: 35%;
+  background-color: var(--head-color);
+  -webkit-clip-path: polygon(50% 100%, 0 1%, 100% 0);
+  clip-path: polygon(50% 100%, 0 1%, 100% 0);
+  z-index: 2;
+}
+.right-ear {
+  position: absolute;
+  top: 16%;
+  right: 15%;
+  transform: rotate(10deg);
+  width: 30%;
+  height: 35%;
+  background-color: var(--head-color);
+  -webkit-clip-path: polygon(50% 100%, 0 1%, 100% 0);
+  clip-path: polygon(50% 100%, 0 1%, 100% 0);
+  z-index: 2;
+}
+.left-eye {
+  position: absolute;
+  background: #fff;
+  width: 30%;
+  height: 33%;
+  top: 25%;
+  left: 21%;
+  border-radius: 50%;
+  animation: 3s infinite closeOpenEye;
+  z-index: 3;
+}
+.right-eye {
+  position: absolute;
+  background: #fff;
+  width: 30%;
+  height: 33%;
+  top: 25%;
+  right: 21%;
+  border-radius: 50%;
+  z-index: 3;
+  animation: 3s infinite closeOpenEye;
+}
+.pupil {
+  position: absolute;
+  background: var(--inner-eye-color);
+  width: 28%;
+  height: 30%;
+  top: 35%;
+  left: 36%;
+  border-radius: var(--circle);
+  animation: 3s infinite closeOpenEye;
+}
+
+.nose {
+  position: absolute;
+  background: var(--nose-color);
+  width: 15%;
+  height: 15%;
+  left: 50%;
+  top: 65%;
+  border-radius: 70%;
+  z-index: 4;
+}
+@keyframes closeOpenEye {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    /* transform: translate(-100%, 100%); */
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
